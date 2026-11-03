@@ -318,7 +318,7 @@ function PreferencesCard() {
             <span className="block text-sm font-medium">Hide balances</span>
             <span className="block text-sm text-muted">Mask amounts across the wallet on this device.</span>
           </span>
-          <input type="checkbox" role="switch" checked={hideBalances} onChange={(e) => setHideBalances(e.target.checked)} className="size-5 accent-[#3478F6]" />
+          <input type="checkbox" role="switch" checked={hideBalances} onChange={(e) => setHideBalances(e.target.checked)} className="size-5 accent-[#ff7940]" />
         </label>
         <p className="text-xs text-muted">
           Notifications: replies from support appear under the bell icon. Email notifications are not sent for wallet

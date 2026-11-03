@@ -52,7 +52,7 @@ function MarketChart({ symbol }: { symbol: AssetSymbol }) {
               role="tab"
               aria-selected={range === r}
               onClick={() => setRange(r)}
-              className={cn("h-8 min-w-11 rounded-full px-2.5 text-sm", range === r ? "bg-primary text-white" : "text-muted hover:text-fg")}
+              className={cn("h-8 min-w-11 rounded-full px-2.5 text-sm", range === r ? "bg-fg font-medium text-bg" : "text-muted hover:text-fg")}
             >
               {r}
             </button>
@@ -203,7 +203,7 @@ export function AssetDetail({ symbol }: { symbol: AssetSymbol }) {
                       { v: "onchain", l: "On-chain" },
                       { v: "demo", l: "Demo" },
                     ].map((t) => (
-                      <Tabs.Trigger key={t.v} value={t.v} className="h-8 rounded-full px-3.5 text-sm text-muted data-[state=active]:bg-primary data-[state=active]:text-white">
+                      <Tabs.Trigger key={t.v} value={t.v} className="h-8 rounded-full px-3.5 text-sm text-muted data-[state=active]:bg-fg data-[state=active]:text-bg data-[state=active]:font-medium">
                         {t.l}
                       </Tabs.Trigger>
                     ))}

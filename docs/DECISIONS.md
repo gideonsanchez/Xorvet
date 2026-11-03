@@ -38,3 +38,6 @@ The owner offered a single Bitcoin mainnet address to show every user on Receive
 
 ## 2026-11-03 Activity search filters loaded rows
 Firestore has no substring search. Type and asset filters run on the server with indexes; the text search filters the rows already loaded.
+
+## 2026-11-03 Wallet app adopts MetaMask's dark palette
+The owner found the navy, all-blue wallet lifeless and asked for MetaMask's colors. The app theme now uses MetaMask's published dark tokens (`@metamask/design-tokens` v12): near-black surfaces, lime success, coral error, and the orange brand accent for primary actions. Quick actions each get a brand accent, accounts get a deterministic pixel avatar from their address, and the dashboard follows MetaMask's single-column wallet layout with underline tabs. The public site keeps its light theme. No MetaMask logo or fox artwork is used.

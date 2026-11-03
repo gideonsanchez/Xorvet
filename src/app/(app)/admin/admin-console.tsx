@@ -28,7 +28,7 @@ export function AdminConsole() {
         <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
           <Tabs.List aria-label="Admin sections" className="inline-flex min-w-max gap-1 rounded-full border border-border bg-card p-1">
             {TABS.map((t) => (
-              <Tabs.Trigger key={t.v} value={t.v} className="h-9 rounded-full px-3.5 text-sm whitespace-nowrap text-muted data-[state=active]:bg-primary data-[state=active]:text-white">
+              <Tabs.Trigger key={t.v} value={t.v} className="h-9 rounded-full px-3.5 text-sm whitespace-nowrap text-muted data-[state=active]:bg-fg data-[state=active]:text-bg data-[state=active]:font-medium">
                 {t.l}
               </Tabs.Trigger>
             ))}

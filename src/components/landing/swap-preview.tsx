@@ -20,7 +20,7 @@ function Row({ label, symbol, amount, muted }: { label: string; symbol: AssetSym
 /** Static illustration of the demo swap screen. Amounts are an example, not live data. */
 export function SwapPreview() {
   return (
-    <div className="mx-auto w-full max-w-[400px] rounded-[28px] border border-white/10 bg-[#0d1b31] p-5 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)]" aria-hidden>
+    <div className="mx-auto w-full max-w-[400px] rounded-[28px] border border-white/10 bg-[#18181b] p-5 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)]" aria-hidden>
       <div className="mb-4 flex items-center justify-between">
         <span className="font-display text-2xl text-white">Swap</span>
         <span className="inline-flex items-center gap-1 rounded-full border border-[#f5b94c]/50 px-2 py-0.5 text-xs text-[#f5b94c]">
@@ -30,7 +30,7 @@ export function SwapPreview() {
       </div>
       <Row label="You pay" symbol="SOL" amount="2.5" />
       <div className="relative z-10 -my-3 flex justify-center">
-        <span className="flex size-10 items-center justify-center rounded-full border-4 border-[#0d1b31] bg-[#13233d] text-white">
+        <span className="flex size-10 items-center justify-center rounded-full border-4 border-[#18181b] bg-[#222226] text-white">
           <ArrowDownUp className="size-4" />
         </span>
       </div>
@@ -45,7 +45,7 @@ export function SwapPreview() {
           <span className="text-white">Live market data</span>
         </div>
       </div>
-      <div className="mt-5 flex h-12 items-center justify-center rounded-full bg-white font-medium text-[#071426]">Review swap</div>
+      <div className="mt-5 flex h-12 items-center justify-center rounded-full bg-[#ff7940] font-medium text-[#0d0d0f]">Review swap</div>
     </div>
   );
 }

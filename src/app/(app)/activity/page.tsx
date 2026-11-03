@@ -168,7 +168,7 @@ export default function ActivityPage() {
             { v: "app", l: "Demo activity" },
             { v: "chain", l: "On-chain" },
           ].map((t) => (
-            <Tabs.Trigger key={t.v} value={t.v} className="h-9 rounded-full px-4 text-sm text-muted data-[state=active]:bg-primary data-[state=active]:text-white">
+            <Tabs.Trigger key={t.v} value={t.v} className="h-9 rounded-full px-4 text-sm text-muted data-[state=active]:bg-fg data-[state=active]:text-bg data-[state=active]:font-medium">
               {t.l}
             </Tabs.Trigger>
           ))}

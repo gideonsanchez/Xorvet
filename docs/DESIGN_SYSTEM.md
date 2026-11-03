@@ -6,19 +6,23 @@ Tokens live in `src/app/globals.css`. Components only use tokens, so the same Bu
 
 ## Themes
 
-| Token | App (`:root`, dark navy) | Public site and auth (`.theme-light`) |
+| Token | App (`:root`, MetaMask dark) | Public site and auth (`.theme-light`) |
 | --- | --- | --- |
-| `bg` | `#071426` | `#F3F3F0` |
-| `card` | `#0D1B31` | `#FFFFFF` |
-| `elevated` | `#13233D` | `#EBEBE6` |
-| `border` | `#213450` | `#DCDCD5` |
-| `fg` | `#F5F8FF` | `#0B0F17` |
-| `muted` | `#9AAEC9` | `#555C69` |
-| `primary` (links, focus, selection) | `#4C8DFF` | `#1F5FE0` |
-| `success` / `warning` / `danger` | `#22C99A` / `#F5B94C` / `#F0616D` | `#0E8A66` / `#9A5B00` / `#C4303D` |
+| `bg` | `#0D0D0F` (sidebar `#000000`) | `#F3F3F0` |
+| `card` | `#18181B` | `#FFFFFF` |
+| `elevated` | `#222226` | `#EBEBE6` |
+| `border` | `#2D2D33` | `#DCDCD5` |
+| `fg` | `#FFFFFF` | `#0B0F17` |
+| `muted` | `#A3A4A7` | `#555C69` |
+| `primary` (links, focus, active nav) | `#FF7940` orange | `#1F5FE0` |
+| `cta` / `cta-fg` (primary button) | `#FF7940` / `#0D0D0F` | `#0B0F17` / `#FFFFFF` |
+| `success` / `warning` / `danger` | `#B9F302` lime / `#F0B034` / `#FF7584` | `#0E8A66` / `#9A5B00` / `#C4303D` |
+| `violet` (demo, MOWI) | `#C66EF5` | `#5B3FC4` |
 
+The app palette comes from MetaMask's open-source tokens (`@metamask/design-tokens` v12, dark theme).
+Accents for quick actions and avatars: orange `#FF7940` (Send), lime `#B9F302` (Receive), purple `#C66EF5` (Swap), indigo `#73A6FF` (Buy), peach `#FFC0A5`.
 Landing tiles (light theme only, flat): `tile-ice #DBE5FF`, `tile-sand #F2E5CF`, `tile-mint #D3EFE2`, `tile-lilac #E5DEF8`.
-Brand accent `#3478F6` appears as a solid color in the logo and the 3D mark only.
+Accent colors always pair with dark `#0D0D0F` icons or text for contrast; status is also shown with icons, never color alone.
 
 ## Typography
 
@@ -38,7 +42,7 @@ MetaMask's site uses Grotzec Condensed (commercial, licensed to MetaMask) for he
 
 ## Buttons
 
-`primary` is solid `fg` on `bg` (ink pill on light, white pill on dark). `secondary` is a bordered card-colored pill. `ghost`, `danger`, `link`. Sizes 36, 44 and 52 px.
+`primary` uses the `cta` token: an orange pill in the wallet, an ink pill on the public site. `secondary` is a bordered card-colored pill. `ghost`, `danger`, `link`. Sizes 36, 44 and 52 px.
 
 ## Motion and 3D
 

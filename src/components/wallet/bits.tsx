@@ -138,7 +138,7 @@ export function QrCode({ value, label }: { value: string; label: string }) {
   const [svg, setSvg] = useState<string | null>(null);
   useEffect(() => {
     let cancelled = false;
-    QRCode.toString(value, { type: "svg", margin: 1, errorCorrectionLevel: "M", color: { dark: "#071426", light: "#ffffff" } })
+    QRCode.toString(value, { type: "svg", margin: 1, errorCorrectionLevel: "M", color: { dark: "#0d0d0f", light: "#ffffff" } })
       .then((s) => !cancelled && setSvg(s))
       .catch(() => !cancelled && setSvg(null));
     return () => {
@@ -152,19 +152,24 @@ export function QrCode({ value, label }: { value: string; label: string }) {
   );
 }
 
+/** MetaMask-style action tiles, each with its own brand accent. */
 export function QuickActions({ className }: { className?: string }) {
   const actions = [
-    { href: "/send", label: "Send", icon: ArrowUpRight },
-    { href: "/receive", label: "Receive", icon: ArrowDownLeft },
-    { href: "/swap", label: "Swap", icon: ArrowLeftRight },
-    { href: "/buy", label: "Buy", icon: ShoppingCart },
+    { href: "/send", label: "Send", icon: ArrowUpRight, tone: "bg-accent-orange" },
+    { href: "/receive", label: "Receive", icon: ArrowDownLeft, tone: "bg-accent-lime" },
+    { href: "/swap", label: "Swap", icon: ArrowLeftRight, tone: "bg-accent-purple" },
+    { href: "/buy", label: "Buy", icon: ShoppingCart, tone: "bg-accent-indigo" },
   ];
   return (
-    <div className={cn("grid grid-cols-4 gap-2", className)}>
-      {actions.map(({ href, label, icon: Icon }) => (
-        <Link key={href} href={href} className="group flex flex-col items-center gap-2 rounded-[14px] py-1.5">
-          <span className="flex size-12 items-center justify-center rounded-full bg-fg text-bg transition-transform group-hover:scale-105 group-active:scale-95">
-            <Icon className="size-[22px]" aria-hidden />
+    <div className={cn("grid grid-cols-4 gap-2 sm:gap-3", className)}>
+      {actions.map(({ href, label, icon: Icon, tone }) => (
+        <Link
+          key={href}
+          href={href}
+          className="group flex flex-col items-center gap-2 rounded-[18px] border border-border bg-card px-1 py-3.5 transition-colors hover:bg-elevated sm:py-4"
+        >
+          <span className={cn("flex size-11 items-center justify-center rounded-full text-[#0d0d0f] transition-transform group-hover:scale-110 group-active:scale-95", tone)}>
+            <Icon className="size-[22px]" strokeWidth={2.25} aria-hidden />
           </span>
           <span className="text-[13px] font-medium text-fg">{label}</span>
         </Link>

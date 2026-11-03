@@ -4,13 +4,13 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// Pill buttons in flat ink (light theme) or flat white (dark theme). No gradients.
+// Pill buttons: flat ink on the light site, MetaMask orange in the wallet app. No gradients.
 const buttonVariants = cva(
   "inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-full font-medium transition-[background-color,border-color,color,opacity,transform] duration-150 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-45 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        primary: "bg-fg text-bg hover:opacity-85",
+        primary: "bg-cta text-cta-fg hover:brightness-110",
         secondary: "border border-border bg-card text-fg hover:border-fg/40",
         ghost: "text-muted hover:bg-elevated hover:text-fg",
         danger: "border border-danger/50 bg-danger/10 text-danger hover:bg-danger/20",

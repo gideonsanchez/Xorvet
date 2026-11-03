@@ -246,7 +246,7 @@ export function WalletSetup({ userId, initialMode, hasLinkedWallet }: { userId: 
               <label key={label} className="flex cursor-pointer items-start gap-3 rounded-[12px] border border-border bg-elevated/50 p-3.5 text-sm">
                 <input
                   type="checkbox"
-                  className="mt-0.5 size-5 shrink-0 accent-[#3478F6]"
+                  className="mt-0.5 size-5 shrink-0 accent-[#ff7940]"
                   checked={acks[i]}
                   onChange={(e) => setAcks((a) => a.map((v, j) => (j === i ? e.target.checked : v)))}
                 />

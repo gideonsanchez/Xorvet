@@ -31,6 +31,7 @@ import { endServerSession } from "@/lib/firebase/client";
 import { apiFetch } from "@/lib/hooks/use-api";
 import { timeAgo } from "@/lib/format";
 import { cn } from "@/lib/utils";
+import { Identicon } from "./identicon";
 import { useWallet } from "./wallet-context";
 
 type NavItem = { href: string; label: string; icon: LucideIcon };
@@ -70,10 +71,10 @@ function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
               aria-current={active ? "page" : undefined}
               className={cn(
                 "flex h-11 items-center gap-3 rounded-full px-4 text-[15px] transition-colors",
-                active ? "bg-elevated font-medium text-fg" : "text-muted hover:bg-elevated/60 hover:text-fg",
+                active ? "bg-elevated font-semibold text-fg" : "text-muted hover:bg-elevated/60 hover:text-fg",
               )}
             >
-              <Icon className="size-5" aria-hidden />
+              <Icon className={cn("size-5", active && "text-primary")} aria-hidden />
               {label}
             </Link>
           </li>
@@ -194,15 +195,11 @@ function Notifications() {
 
 function AccountMenu() {
   const router = useRouter();
-  const { user } = useWallet();
-  const initials = (user.fullName || user.email).split(/\s+/).map((p) => p[0]).slice(0, 2).join("").toUpperCase();
+  const { user, addresses } = useWallet();
   return (
     <DM.Root>
-      <DM.Trigger
-        className="flex size-10 items-center justify-center rounded-full bg-fg text-sm font-semibold text-bg"
-        aria-label="Account menu"
-      >
-        {initials}
+      <DM.Trigger className="flex size-10 items-center justify-center rounded-full ring-2 ring-border hover:ring-primary" aria-label="Account menu">
+        <Identicon address={addresses.ethereum} className="size-9" />
       </DM.Trigger>
       <DM.Portal>
         <DM.Content
@@ -246,12 +243,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-dvh lg:pl-[240px]">
-      <a href="#app-main" className="sr-only z-50 rounded-md bg-primary px-3 py-2 text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3">
+      <a href="#app-main" className="sr-only z-50 rounded-md bg-primary px-3 py-2 text-[#0d0d0f] focus:not-sr-only focus:fixed focus:top-3 focus:left-3">
         Skip to content
       </a>
 
       {/* Desktop sidebar */}
-      <aside className="fixed inset-y-0 left-0 hidden w-[240px] flex-col border-r border-border bg-bg px-3 py-5 lg:flex">
+      <aside className="fixed inset-y-0 left-0 hidden w-[240px] flex-col border-r border-border bg-black px-3 py-5 lg:flex">
         <Link href="/dashboard" className="mb-8 px-2" aria-label="XORVET WALLET dashboard">
           <Logo />
         </Link>
@@ -342,9 +339,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 <Link
                   href={href}
                   aria-current={active ? "page" : undefined}
-                  className={cn("flex h-16 flex-col items-center justify-center gap-1 text-[11px]", active ? "text-fg" : "text-muted")}
+                  className={cn("flex h-16 flex-col items-center justify-center gap-1 text-[11px]", active ? "font-semibold text-fg" : "text-muted")}
                 >
-                  <Icon className="size-[22px]" aria-hidden />
+                  <Icon className={cn("size-[22px]", active && "text-primary")} aria-hidden />
                   {label}
                 </Link>
               </li>

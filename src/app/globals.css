@@ -2,21 +2,32 @@
 
 /*
  * Two flat themes, no gradients.
- * :root is the wallet app (dark navy). .theme-light is the public site and auth screens.
+ * :root is the wallet app, built on MetaMask's open-source dark tokens (@metamask/design-tokens v12).
+ * .theme-light is the public site and auth screens.
  * Components only use the tokens, so they work in both.
  */
 :root {
-  --bg: #071426;
-  --card: #0d1b31;
-  --elevated: #13233d;
-  --border: #213450;
-  --fg: #f5f8ff;
-  --muted: #9aaec9;
-  --primary: #4c8dff;
-  --success: #22c99a;
-  --warning: #f5b94c;
-  --danger: #f0616d;
-  --violet: #9a7bff;
+  --bg: #0d0d0f;
+  --card: #18181b;
+  --elevated: #222226;
+  --border: #2d2d33;
+  --fg: #ffffff;
+  --muted: #a3a4a7;
+  /* Links, focus rings and selected states. */
+  --primary: #ff7940;
+  /* Main call-to-action button. */
+  --cta: #ff7940;
+  --cta-fg: #0d0d0f;
+  --success: #b9f302;
+  --warning: #f0b034;
+  --danger: #ff7584;
+  --violet: #c66ef5;
+  /* Brand accents for quick actions, avatars and highlights. */
+  --accent-orange: #ff7940;
+  --accent-lime: #b9f302;
+  --accent-purple: #c66ef5;
+  --accent-indigo: #73a6ff;
+  --accent-peach: #ffc0a5;
   color-scheme: dark;
 }
 
@@ -28,6 +39,8 @@
   --fg: #0b0f17;
   --muted: #555c69;
   --primary: #1f5fe0;
+  --cta: #0b0f17;
+  --cta-fg: #ffffff;
   --success: #0e8a66;
   --warning: #9a5b00;
   --danger: #c4303d;
@@ -62,6 +75,13 @@
   --color-tile-sand: var(--tile-sand);
   --color-tile-mint: var(--tile-mint);
   --color-tile-lilac: var(--tile-lilac);
+  --color-cta: var(--cta);
+  --color-cta-fg: var(--cta-fg);
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-lime: var(--accent-lime);
+  --color-accent-purple: var(--accent-purple);
+  --color-accent-indigo: var(--accent-indigo);
+  --color-accent-peach: var(--accent-peach);
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-display: var(--font-oswald), "Arial Narrow", sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
