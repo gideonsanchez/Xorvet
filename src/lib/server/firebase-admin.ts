@@ -1,7 +1,7 @@
 import "server-only";
 import { cert, getApps, initializeApp, type App } from "firebase-admin/app";
 import { getAuth } from "firebase-admin/auth";
-import { getFirestore } from "firebase-admin/firestore";
+import { getFirestore, type Firestore } from "firebase-admin/firestore";
 import { serverEnv } from "@/lib/config/server-env";
 
 export const isFirebaseAdminConfigured = Boolean(
@@ -23,12 +23,18 @@ function app(): App {
 
 export const adminAuth = () => getAuth(app());
 
-let dbInitialized = false;
-export function db() {
+// The Firestore instance is shared per process, but route bundles each get their own copy of
+// this module, so the "settings applied" flag must live on globalThis or settings() runs twice.
+const globalForFirestore = globalThis as typeof globalThis & { __xorvetFirestore?: Firestore };
+
+export function db(): Firestore {
+  if (globalForFirestore.__xorvetFirestore) return globalForFirestore.__xorvetFirestore;
   const firestore = getFirestore(app());
-  if (!dbInitialized) {
+  try {
     firestore.settings({ ignoreUndefinedProperties: true });
-    dbInitialized = true;
+  } catch {
+    // Already configured by another bundle in this process.
   }
+  globalForFirestore.__xorvetFirestore = firestore;
   return firestore;
 }
