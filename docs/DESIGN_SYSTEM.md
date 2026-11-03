@@ -42,9 +42,9 @@ MetaMask's site uses Grotzec Condensed (commercial, licensed to MetaMask) for he
 
 ## Motion and 3D
 
-- Hero: WebGL scene (Three.js via React Three Fiber) with an extruded XORVET mark and four floating coins. Tilts with the pointer and rotates as you scroll.
-- Loaded lazily on the client. Pauses when off-screen. Lower resolution under 768 px.
-- `prefers-reduced-motion`: one still frame, no floating or rotation. No WebGL: flat logo.
+- Hero: WebGL scene (Three.js via React Three Fiber). The extruded XORVET mark scales in on load and spins continuously (about one turn every 7 s, faster as you scroll). Four coins orbit it on a tilted ellipse and flip as they travel. The pointer tilts the whole scene.
+- Rendered at up to 2x device pixel ratio for sharpness. Loaded lazily on the client. Stops rendering when off-screen.
+- `prefers-reduced-motion`: nothing moves on its own; the mark and coins only tilt toward the cursor. No WebGL: flat logo.
 - Scroll reveals are CSS only and never hide content before JavaScript runs.
 - Network strip marquee, 40 s loop, stops under reduced motion.
 

@@ -28,17 +28,16 @@ function hasWebGL() {
 const subscribeNoop = () => () => {};
 
 /**
- * Interactive 3D hero object. Falls back to the flat logo without WebGL, renders a single
- * still frame for reduced motion, and lowers resolution on small screens.
+ * Interactive 3D hero object. Falls back to the flat logo without WebGL. With reduced motion
+ * nothing moves on its own; the scene only tilts toward the cursor.
  */
 export function Hero3D() {
   const webgl = useSyncExternalStore(subscribeNoop, hasWebGL, () => false);
   const reduced = useMediaQuery("(prefers-reduced-motion: reduce)", false);
-  const small = useMediaQuery("(max-width: 767px)", false);
 
   return (
     <div className="absolute inset-0" role="img" aria-label="3D XORVET mark surrounded by Bitcoin, Ether, Solana and BNB coins">
-      {webgl ? <HeroScene animate={!reduced} lowPower={small} /> : <StaticMark />}
+      {webgl ? <HeroScene animate={!reduced} /> : <StaticMark />}
     </div>
   );
 }
