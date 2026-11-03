@@ -8,6 +8,10 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  images: {
+    // 85 is used for the landing photo; Next.js only serves qualities listed here.
+    qualities: [75, 85],
+  },
   turbopack: {
     rules: {
       "*.css": {

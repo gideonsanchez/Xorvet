@@ -184,10 +184,12 @@ export default async function LandingPage() {
               <Image
                 src="/images/writing-notebook.jpg"
                 alt="A person writing in a notebook at a desk"
-                width={1600}
-                height={1067}
-                sizes="(min-width: 1024px) 600px, 100vw"
-                className="aspect-[4/5] w-full object-cover sm:aspect-[4/3] lg:aspect-[4/5]"
+                width={3200}
+                height={1910}
+                quality={85}
+                // The landscape photo is cropped into a taller frame, so request enough width to cover the crop.
+                sizes="(min-width: 1024px) 1260px, (min-width: 640px) 126vw, 210vw"
+                className="aspect-[4/5] w-full object-cover object-[62%_50%] sm:aspect-[4/3] lg:aspect-[4/5]"
               />
               <figcaption className="absolute right-4 bottom-3 text-[11px] text-white/80">Photo: Unsplash</figcaption>
             </figure>
